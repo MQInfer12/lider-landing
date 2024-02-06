@@ -1,0 +1,50 @@
+---
+import "@fontsource/unbounded";
+import "@fontsource/red-hat-display";
+import Navbar from "../components/global/navbar/navbar.astro";
+import Landing from "../components/index/landing.astro";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro</title>
+  </head>
+  <body>
+    <Navbar />
+    <Landing />
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --navbar-height: 18vh;
+
+    --font-1: "Unbounded";
+    --font-2: "Red Hat Display";
+
+    --white: #FFFFFF;
+    --black: #000000;
+    --accent: #FFFFFF;
+  }
+
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-weight: 100;
+    font-family: var(--font-2);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-1);
+  }
+</style>

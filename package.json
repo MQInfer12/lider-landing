@@ -1,0 +1,19 @@
+{
+  "name": "lider-landing",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.4.1",
+    "@fontsource/red-hat-display": "^5.0.18",
+    "@fontsource/unbounded": "^5.0.18",
+    "astro": "^4.3.2",
+    "typescript": "^5.3.3"
+  }
+}

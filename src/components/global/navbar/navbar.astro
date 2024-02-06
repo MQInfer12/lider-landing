@@ -1,0 +1,41 @@
+---
+import Logo from "./logo.astro";
+import Links from "./links.astro";
+import Right from "./right.astro";
+---
+
+<header>
+  <nav>
+    <div class="left">
+      <Logo />
+      <Links />
+    </div>
+    <Right />
+  </nav>
+</header>
+
+<style>
+  header {
+    z-index: 50;
+    height: var(--navbar-height);
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    display: flex;
+    align-items: flex-end;
+    padding-inline: 10vw;
+  }
+  nav {
+    height: 10vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .left {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+  }
+</style>
