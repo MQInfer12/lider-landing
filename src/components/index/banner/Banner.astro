@@ -1,0 +1,86 @@
+---
+import { Image } from "astro:assets";
+import Img from "../../../assets/images/cocha.png";
+import Title from "../../global/texts/Title.astro";
+import Text from "../../global/texts/Text.astro";
+import Numbers from "./Numbers.astro";
+---
+
+<section>
+  <article>
+    <Image class="banner-img" alt="banner" src={Img} />
+    <div class="opacidad"></div>
+    <div class="texts">
+      <Title textAlign="center" type="secondary" text="Deliver to Airgap with Zarf" dot />
+      <span class="paragraph">
+        <Text textAlign="center" type="secondary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat iusto voluptates, neque numquam recusandae sequi, eum dicta obcaecati, pariatur in ut temporibus alias assumenda?</Text>
+      </span>
+      <div class="numbers">
+        <Numbers number={713} text="Stars" />
+        <Numbers number={1185} text="Pull requests" />
+        <Numbers number={58} text="Contributors" />
+      </div>
+    </div>
+  </article>
+</section>
+
+<style>
+  section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 var(--padding-inline) 10vh;
+  }
+  article {
+    width: 100%;
+    padding: 80px;
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .banner-img {
+    position: absolute;
+    inset: 0;
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+  }
+  .opacidad {
+    position: absolute;
+    inset: 0;
+    background-color: var(--primary-950);
+    opacity: 0.8;
+    z-index: 20;
+  }
+  .paragraph {
+    width: 50%;
+  }
+  .texts {
+    position: relative;
+    z-index: 30;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+  .numbers {
+    display: flex;
+    gap: 80px;
+  }
+  @media screen and (max-width: 950px) {
+    .paragraph {
+      width: 90%;
+    }
+  }
+  @media screen and (max-width: 675px) {
+    article {
+      padding: 80px 20px;
+    }
+    .numbers {
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
+</style>

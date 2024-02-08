@@ -1,0 +1,68 @@
+---
+interface Props {
+  text: string;
+  type?: "primary" | "secondary";
+  textAlign?: "start" | "center";
+  textBalance?: boolean;
+  size?: "sm" | "base" | "xl" | "xxl";
+  responsive?: boolean;
+  margin?: string;
+  dot?: boolean;
+}
+
+const { 
+  text, 
+  margin = "0", 
+  type = "primary", 
+  textAlign = "start", 
+  size = "base", dot, 
+  textBalance = false, 
+  responsive = false
+} = Astro.props;
+---
+
+<h2 class:list={[type, textAlign, size, { balance: textBalance, dot, responsive }]}>{ text }</h2>
+
+<style define:vars={{ margin }}>
+  h2 {
+    font-weight: 900;
+    margin: var(--margin);
+  }
+  h2.dot::after {
+    content: ".";
+    color: var(--primary-600);
+  }
+  .balance {
+    text-wrap: balance;
+  }
+  .start {
+    text-align: start;
+  }
+  .center {
+    text-align: center;
+  }
+  .sm {
+    font-size: .8rem;
+  }
+  .base {
+    font-size: 2rem;
+  }
+  .xl {
+    font-size: 2.5rem;
+  }
+  .xxl {
+    font-size: 3rem;
+  }
+  .primary {
+    color: var(--black);
+  }
+  .secondary {
+    color: var(--accent);
+  }
+
+  @media screen and (max-width: 768px) {
+    .xxl.responsive {
+      font-size: 2rem;
+    }
+  }
+</style>

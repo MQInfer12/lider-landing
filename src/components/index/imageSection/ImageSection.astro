@@ -1,0 +1,64 @@
+---
+import Text from "../../global/texts/Text.astro";
+import Title from "../../global/texts/Title.astro";
+import Image1 from "../../../assets/images/image1.png";
+import Image2 from "../../../assets/images/image2.png";
+import Image3 from "../../../assets/images/image3.png";
+import { Image } from "astro:assets";
+import Button from "../../global/button/Button.astro";
+---
+
+<section>
+  <Title text="Unicorns on a Mission" dot />
+  <span>
+    <Text textAlign="center">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptas quo fuga placeat natus harum, perferendis amet delectus architecto pariatur, at nam porro obcaecati dignissimos odit assumenda nemo ad, atque impedit nobis exercitationem vero. Veritatis excepturi dolore consequatur quam ad. Quia?</Text>
+  </span>
+  <div class="images-container">
+    <div class="image">
+      <Image class="img" alt="preview-1" src={Image1} />
+    </div>
+    <div class="image">
+      <Image class="img" alt="preview-2" src={Image2} />
+    </div>
+    <div class="image">
+      <Image class="img" alt="preview-3" src={Image3} />
+    </div>
+  </div>
+  <div class="button-container">
+    <Button text="Join our team" type="tertiary" />
+  </div>
+</section>
+
+<style>
+  section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5vh var(--padding-inline) 10vh;
+    gap: 40px;
+  }
+  span {
+    width: 600px;
+    max-width: 100%;
+  }
+  .images-container {
+    width: 100%;
+    display: flex;
+    gap: 40px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+  }
+  .image {
+    flex: 1;
+    min-width: 200px;
+    height: 200px;
+  }
+  .img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .button-container {
+    margin-top: 20px;
+  }
+</style>

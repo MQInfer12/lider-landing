@@ -1,0 +1,45 @@
+---
+import Dotted from "../../global/dotted/Dotted.astro";
+import Subtitle from "../../global/texts/Subtitle.astro";
+import Title from "../../global/texts/Title.astro";
+---
+
+<section>
+  <div class="last-dot">
+    <Dotted />
+  </div>
+  <div class="texts">
+    <Subtitle text="Our mission" />
+    <Title responsive textAlign="center" size="xxl" text={`"Transform how the U.S. defense apparatus buys, builds, delivers, and sustains mission capabilities"`} dot />
+  </div>
+  <div class="last-dot">
+    <Dotted />
+  </div>
+</section>
+
+<style>
+  section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8vh var(--padding-inline);
+    gap: 64px;
+  }
+  .last-dot {
+    width: 300px;
+    display: flex;
+  }
+  .texts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 700px;
+    max-width: 100%;
+  }
+
+  @media screen and (max-width: 768px) {
+    .texts {
+      gap: 24px;
+    }
+  }
+</style>

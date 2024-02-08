@@ -1,41 +1,183 @@
 ---
-import Logo from "./logo.astro";
-import Links from "./links.astro";
-import Right from "./right.astro";
+import IconMenu from "../../../assets/icons/IconMenu.astro";
+import IconMessage from "../../../assets/icons/IconMessage.astro";
+import IconShop from "../../../assets/icons/IconShop.astro";
+import IconX from "../../../assets/icons/IconX.astro";
+import Logo from "./Logo.astro";
 ---
 
-<header>
+<div class="top"></div>
+<header id="navbar">
   <nav>
     <div class="left">
       <Logo />
-      <Links />
+      <input type="checkbox" id="nav-hamburger" />
+      <ul class="links">
+        <label class="iconX" for="nav-hamburger">
+          <IconX />
+        </label>
+        <li>
+          <a>Products</a>
+        </li>
+        <li>
+          <a>Project</a>
+        </li>
+        <li>
+          <a>Contracts</a>
+        </li>
+        <li>
+          <a>Case Studies</a>
+        </li>
+        <li>
+          <a>Unicorn Academy</a>
+        </li>
+      </ul>
     </div>
-    <Right />
+    <div class="right">
+      <ul>
+        <li>
+          <a class="bold">
+            <p class="link-text">Contact Us</p>
+            <div class="link-icon">
+              <IconMessage />
+            </div>
+          </a>
+        </li>
+        <li>
+          <a class="bold">
+            <p class="link-text">Request Demo</p>
+            <div class="link-icon">
+              <IconShop />
+            </div>
+          </a>
+        </li>
+      </ul>
+      <label class="hamburger" for="nav-hamburger">
+        <IconMenu />
+      </label>
+    </div>
   </nav>
 </header>
+<script>
+  const nav = document.querySelector('#navbar');
+  window.addEventListener("scroll", (e) => {
+    if(!nav) return;
+    const bounds = nav.getBoundingClientRect();
+    const top = bounds.top;
+    if(top > 0) {
+      nav.classList.remove("onTop");
+    } else {
+      nav.classList.add("onTop");
+    }
+  })
+</script>
 
 <style>
-  header {
-    z-index: 50;
-    height: var(--navbar-height);
+  .top {
+    height: 8vh;
     width: 100vw;
-    position: fixed;
-    top: 0;
     display: flex;
-    align-items: flex-end;
-    padding-inline: 10vw;
+  }
+  header {
+    height: 12vh;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background-color: transparent;
+    transition: background-color .3s;
   }
   nav {
-    height: 10vh;
-    width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
+    padding-inline: 10vw;
     justify-content: space-between;
+    position: relative;
+  }
+  ul {
+    display: flex;
+    color: var(--white);
+    gap: 32px;
+    list-style: none;
+  }
+  a {
+    white-space: nowrap;
+  }
+  a.bold {
+    font-weight: 900;
+  }
+  .onTop {
+    background-color: var(--primary-950-40);
+    backdrop-filter: blur(5px);
   }
   .left {
     height: 100%;
     display: flex;
     align-items: center;
     gap: 40px;
+  }
+  .right {
+    display: flex;
+    gap: 40px;
+  }
+  input[type="checkbox"] {
+    display: none;
+  }
+  .hamburger {
+    display: none;
+    width: 18px;
+    height: 18px;
+    color: var(--white);
+    cursor: pointer;
+  }
+  .link-icon {
+    display: none;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+  }
+  .iconX { 
+    display: none;
+    width: 18px;
+    height: 18px;
+    align-self: center;
+    cursor: pointer;
+  }
+
+  @media screen and (max-width: 1300px) {
+    nav {
+      padding-inline: 4vw;
+    }
+  }
+  @media screen and (max-width: 1120px) {
+    .hamburger {
+      display: block;
+    }
+    .links {
+      position: fixed;
+      top: 0;
+      right: 0;
+      background-color: var(--primary-950-40);
+      backdrop-filter: blur(5px);
+      flex-direction: column;
+      padding: 40px 16px 24px 24px;
+      transform: translateX(100%);
+      box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+      transition: all 0.3s;
+    }
+    input[type="checkbox"]:checked + .links {
+      transform: translateX(0);
+    }
+    .iconX {
+      display: block;
+    }
+  }
+  @media screen and (max-width: 550px) {
+    .link-text {
+      display: none;
+    }
+    .link-icon {
+      display: block;
+    }
   }
 </style>

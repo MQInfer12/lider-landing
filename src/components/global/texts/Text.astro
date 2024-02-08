@@ -1,0 +1,26 @@
+---
+interface Props {
+  type?: "primary" | "secondary";
+  textAlign?: "start" | "center";
+}
+
+const { type = "primary", textAlign = "start" } = Astro.props;
+---
+
+<p class={type}><slot /></p>
+
+<style define:vars={{ textAlign }}>
+  p {
+    font-size: 14px;
+    font-weight: 500;
+    opacity: .8;
+    line-height: 26px;
+    text-align: var(--textAlign);
+  }
+  .primary {
+    color: var(--black);
+  }
+  .secondary {
+    color: var(--accent);
+  }
+</style>

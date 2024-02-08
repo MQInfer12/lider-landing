@@ -1,0 +1,24 @@
+---
+import Text from "../../global/texts/Text.astro";
+import Title from "../../global/texts/Title.astro";
+
+interface Props {
+  number: number;
+  text: string;
+}
+
+const { number, text } = Astro.props;
+---
+
+<div>
+  <Title text={String(number)} type="secondary" size="xxl" />
+  <Text type="secondary">{text}</Text>
+</div>
+
+<style>
+  div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+</style>

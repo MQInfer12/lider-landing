@@ -1,0 +1,125 @@
+---
+import Social from "../../index/contactHeader/Social.astro";
+import Dotted from "../dotted/Dotted.astro";
+import Logo from "../navbar/Logo.astro";
+import Text from "../texts/Text.astro";
+---
+
+<footer>
+  <header>
+    <div class="header-title">
+      <Logo size="sm" type="secondary" />
+    </div>
+    <div class="right">
+      <Dotted />
+      <Social />
+    </div>
+  </header>
+  <article>
+    <div class="column">
+      <b>Offerings</b>
+      <ul>
+        <li><Text>Anti-Money Laundering</Text></li>
+        <li><Text>Automotive & Mobility</Text></li>
+        <li><Text>Auto Racing</Text></li>
+        <li><Text>Data protection</Text></li>
+        <li><Text>Defense</Text></li>
+      </ul>
+    </div>
+    <div class="column">
+      <b>Impact Studies</b>
+      <ul>
+        <li><Text>Airbus</Text></li>
+        <li><Text>Axel Springer</Text></li>
+        <li><Text>Fujitsu</Text></li>
+        <li><Text>Kinder Morgan</Text></li>
+      </ul>
+    </div>
+    <div class="column">
+      <b>Capabilities</b>
+      <ul>
+        <li><Text>AI + ML</Text></li>
+        <li><Text>Data Integration</Text></li>
+        <li><Text>Digital Twin</Text></li>
+        <li><Text>MetaConstellation</Text></li>
+        <li><Text>Real-Time Alerting</Text></li>
+      </ul>
+    </div>
+  </article>
+  <div class="copy">
+    <small>Copyright &copy; 2024 Líder Soft. Todos los derechos reservados</small>
+    <small>Políticas de privacidad | Términos de servicio</small>
+  </div>
+</footer>
+  
+<style>
+  footer {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    padding: 5vh var(--padding-inline) 10vh;
+  }
+  article {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-left: 64px;
+    gap: 80px;
+  }
+  .column {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 180px;
+    flex: 1;
+  }
+  b {
+    font-size: .8rem;
+    letter-spacing: .6px;
+    text-transform: uppercase;
+    font-weight: 800;
+    white-space: nowrap;
+  }
+  ul {
+    margin-left: 24px;
+  }
+  li {
+    white-space: nowrap;
+  }
+  .copy {
+    padding-top: 40px;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  small {
+    opacity: 0.6;
+  }
+  
+  header {
+    display: flex;
+    width: 100%;
+    align-items: center;
+  }
+  .header-title {
+    padding-right: 20px;
+  }
+  .right {
+    width: 100%;
+    display: flex;
+    flex: 1;
+  }
+  @media screen and (max-width: 1060px) {
+    article {
+      margin-left: 0;
+      row-gap: 16px;
+      flex-wrap: wrap;
+    }
+    header {
+      flex-direction: column;
+      gap: 24px;
+    }
+  }
+</style>

@@ -1,0 +1,49 @@
+---
+import IconCard from "./IconCard.astro";
+import IconApp from "../../../assets/icons/IconApp.astro";
+import Header from "../../global/header/Header.astro";
+import Button from "../../global/button/Button.astro";
+import IconCardContainer from "./IconCardContainer.astro";
+---
+
+<section>
+  <Header small="Zarf capabilities" text="Deploy Anywhere Regardless of Connection">
+    <div class="button-container">
+      <Button type="tertiary" text="Try Zarf" />
+    </div>
+  </Header>
+  <IconCardContainer>
+    <IconCard
+      title="Package Cloud Apps & Resources"
+      text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci sit aliquid provident mollitia blanditiis rem, porro nam. Commodi, ex saepe."
+    >
+      <IconApp />
+    </IconCard>
+    <IconCard
+      title="Package Cloud Apps & Resources"
+      text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci sit aliquid provident mollitia blanditiis rem, porro nam. Commodi, ex saepe."
+    >
+      <IconApp />
+    </IconCard>
+    <IconCard
+      title="Package Cloud Apps & Resources"
+      text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci sit aliquid provident mollitia blanditiis rem, porro nam. Commodi, ex saepe."
+    >
+      <IconApp />
+    </IconCard>
+  </IconCardContainer>
+</section>
+
+<style>
+  section {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    align-items: center;
+    padding: 0 var(--padding-inline) 10vh;
+  }
+  .button-container {
+    align-self: flex-end;
+    padding: 0 12px;
+  }
+</style>

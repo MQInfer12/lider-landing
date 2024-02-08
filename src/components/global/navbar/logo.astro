@@ -1,9 +1,16 @@
 ---
 import { Image } from "astro:assets";
 import LogoLider from "../../../assets/images/logo.png";
+
+interface Props {
+  type?: "primary" | "secondary";
+  size?: "base" | "sm";
+}
+
+const { type = "primary", size = "base" } = Astro.props;
 ---
 
-<div class="container">
+<div class:list={["container", size, type]}>
   <div class="image-container">
     <Image src={LogoLider} alt="logo-lider" class="logo-image" />
   </div>
@@ -15,10 +22,37 @@ import LogoLider from "../../../assets/images/logo.png";
 
 <style>
   .container {
-    height: 100%;
     display: flex;
     align-items: center;
     gap: 16px;
+  }
+  .primary {
+    color: var(--accent);
+  }
+  .secondary {
+    color: var(--black);
+  }
+  .base {
+    height: 100px;
+  }
+  .base h1 {
+    font-weight: 900;
+    margin-bottom: -4px;
+  }
+  .base h2 {
+    font-weight: 300;
+  }
+  .sm {
+    height: 60px;
+  }
+  .sm h1 {
+    font-size: 1rem;
+    font-weight: 900;
+    margin-bottom: -2px;
+  }
+  .sm h2 {
+    font-size: .8rem;
+    font-weight: 300;
   }
   .image-container {
     height: 70%;
@@ -29,15 +63,22 @@ import LogoLider from "../../../assets/images/logo.png";
     height: 100%;
   }
   span {
-    color: var(--white);
     display: flex;
     flex-direction: column;
   }
-  h1 {
-    font-weight: 900;
-    margin-bottom: -4px;
-  }
-  h2 {
-    font-weight: 300;
+
+  @media screen and (max-width: 550px) {
+    .base {
+      height: 60px;
+    }
+    .base h1 {
+      font-size: 1rem;
+      font-weight: 900;
+      margin-bottom: -2px;
+    }
+    .base h2 {
+      font-size: .8rem;
+      font-weight: 300;
+    }
   }
 </style>

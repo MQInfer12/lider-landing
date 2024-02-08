@@ -1,0 +1,19 @@
+<article>
+  <slot />
+</article>
+
+<style>
+  article {
+    display: flex;
+    gap: 80px;
+    margin-left: 106px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  @media screen and (max-width: 1500px) {
+    article {
+      gap: 48px;
+      margin-left: 0;
+    }
+  }
+</style>

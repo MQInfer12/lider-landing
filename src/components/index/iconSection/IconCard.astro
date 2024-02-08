@@ -1,0 +1,58 @@
+---
+import Button from "../../global/button/Button.astro";
+import Text from "../../global/texts/Text.astro";
+import Title from "../../global/texts/Title.astro";
+
+interface Props {
+  title: string;
+  text: string;
+  iconColor?: "primary" | "secondary";
+  button?: string;
+}
+
+const { title, text, iconColor = "primary", button } = Astro.props;
+---
+
+<div class="card">
+  <div class:list={["icon-container", iconColor]}>
+    <slot />
+  </div>
+  <div class="text-container">
+    <Title textBalance text={title} size="sm" />
+    <Text>{text}</Text>
+    {
+      button &&
+      <div class="button-container">
+        <Button text={button} type="tertiary" />
+      </div>
+    }
+  </div>
+</div>
+
+<style>
+  .card {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 250px;
+  }
+  .icon-container {
+    width: 40px;
+    height: 40px;
+  }
+  .primary {
+    color: var(--primary-600);
+  }
+  .secondary {
+    color: var(--secondary-500);
+  }
+  .text-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding-inline: 16px;
+  }
+  .button-container {
+    align-self: flex-start;
+  }
+</style>

@@ -1,12 +1,13 @@
 ---
 interface Props {
   text: string;
+  type?: "primary" | "secondary" | "tertiary";
 }
 
-const { text } = Astro.props;
+const { text, type = "primary" } = Astro.props;
 ---
 
-<button>
+<button class={type}>
   {text}
 </button>
 
@@ -22,5 +23,18 @@ const { text } = Astro.props;
   }
   button:hover {
     opacity: 0.8;
+  }
+  .primary {
+    background-color: var(--primary-600);
+    color: var(--accent);
+  }
+  .secondary {
+    background-color: var(--white);
+    color: var(--primary-600);
+  }
+  .tertiary {
+    background-color: var(--white);
+    color: var(--primary-600);
+    padding: 0;
   }
 </style>

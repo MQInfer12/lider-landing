@@ -1,0 +1,54 @@
+---
+import IconFacebook from "../../../assets/icons/IconFacebook.astro";
+import IconInstagram from "../../../assets/icons/IconInstagram.astro";
+import IconWhatsapp from "../../../assets/icons/IconWhatsapp.astro";
+
+interface Props {
+  size?: "base" | "sm";
+}
+
+const { size = "base" } = Astro.props;
+---
+
+<div class={size}>
+  <a href="#">
+    <IconInstagram />
+  </a>
+  <a href="#">
+    <IconFacebook />
+  </a>
+  <a href="#">
+    <IconWhatsapp />
+  </a>
+</div>
+
+<style>
+  div {
+    display: flex;
+    align-items: flex-end;
+  }
+  .base {
+    padding-left: 30px;
+    gap: 60px;
+  }
+  .base a {
+    width: 32px;
+    height: 32px;
+  }
+  .sm {
+    padding-left: 16px;
+    gap: 32px;
+  }
+  .base a {
+    width: 24px;
+    height: 24px;
+  }
+  a {
+    display: block;
+    color: var(--secondary-500);
+    transition: all 0.3s;
+  }
+  a:hover {
+    color: var(--primary-600);
+  }
+</style>

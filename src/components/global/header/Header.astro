@@ -1,0 +1,50 @@
+---
+import Subtitle from "../texts/Subtitle.astro";
+import Title from "../texts/Title.astro";
+import Dotted from "../dotted/Dotted.astro";
+import Button from "../button/Button.astro";
+
+interface Props {
+  small?: string;
+  text: string;
+}
+
+const { text, small } = Astro.props;
+---
+
+<header>
+  <div class="header-title">
+    {
+      small && <Subtitle text={small} />
+    }
+    <div>
+      <Title text={text} dot />
+    </div>
+  </div>
+  <div class="right">
+    <Dotted />
+    <slot />
+  </div>
+</header>
+
+<style>
+  header {
+    display: flex;
+    width: 100%;
+  }
+  .header-title {
+    max-width: 600px;
+    text-wrap: balance;
+    padding-right: 40px;
+  }
+  .right {
+    display: flex;
+    flex: 1;
+  }
+  @media screen and (max-width: 1060px) {
+    header {
+      flex-direction: column;
+      gap: 24px;
+    }
+  }
+</style>

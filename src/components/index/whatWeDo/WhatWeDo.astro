@@ -1,0 +1,56 @@
+---
+import { Image } from "astro:assets";
+import WhatWeDoImg from "../../../assets/images/whatWeDo.png";
+import Subtitle from "../../global/texts/Subtitle.astro";
+import Title from "../../global/texts/Title.astro";
+import Text from "../../global/texts/Text.astro";
+---
+
+<section>
+  <div class="texts">
+    <Subtitle text="What we do" />
+    <Title 
+      margin="16px 0 32px"
+      text="Develop Mission Focused Open Source Products" 
+      dot
+    />
+    <Text>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nulla rem excepturi quam, magnam earum officia recusandae? Autem repellat quod error doloribus, laborum a voluptatibus nobis libero! Earum sit nostrum nihil.</Text>
+  </div>
+  <div class="image-container">
+    <Image class="image" alt="what we do" src={WhatWeDoImg} />
+  </div>
+</section>
+
+<style>
+  section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 150px;
+    padding: 10vh var(--padding-inline);
+  }
+  .texts {
+    width: 400px;
+    max-width: 100%;
+  }
+  .title {
+    margin-top: 16px;
+  }
+  .image-container {
+    width: 400px;
+    height: 300px;
+    max-width: 100%;
+  }
+  .image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @media screen and (max-width: 768px) {
+    section {
+      flex-direction: column-reverse;
+      gap: 40px;
+    }
+  }
+</style>

@@ -1,0 +1,46 @@
+---
+import IconCard from "../iconSection/IconCard.astro";
+import IconApp from "../../../assets/icons/IconApp.astro";
+import Header from "../../global/header/Header.astro";
+import IconCardContainer from "../iconSection/IconCardContainer.astro";
+---
+
+<section>
+  <Header small="Learn with us" text="Free DevSecOps Resources" />
+  <IconCardContainer>
+    <IconCard
+      iconColor="secondary"
+      title="Package Cloud Apps & Resources"
+      text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci sit aliquid provident mollitia blanditiis rem, porro nam. Commodi, ex saepe."
+      button="Read more"
+    >
+      <IconApp />
+    </IconCard>
+    <IconCard
+      iconColor="secondary"
+      title="Package Cloud Apps & Resources"
+      text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci sit aliquid provident mollitia blanditiis rem, porro nam. Commodi, ex saepe."
+      button="Read more"
+    >
+      <IconApp />
+    </IconCard>
+    <IconCard
+      iconColor="secondary"
+      title="Package Cloud Apps & Resources"
+      text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci sit aliquid provident mollitia blanditiis rem, porro nam. Commodi, ex saepe."
+      button="Read more"
+    >
+      <IconApp />
+    </IconCard>
+  </IconCardContainer>
+</section>
+
+<style>
+  section {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    align-items: center;
+    padding: 0 var(--padding-inline) 10vh;
+  }
+</style>

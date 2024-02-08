@@ -1,5 +1,5 @@
 ---
-import Button from "../global/button/button.astro";
+import Button from "../../global/button/Button.astro";
 ---
 
 <div>
@@ -16,10 +16,13 @@ import Button from "../global/button/button.astro";
     z-index: 20;
     color: var(--white);
     text-align: center;
+    margin-top: 20vh;
+    padding-inline: 5vw;
   }
   h2 {
     font-size: 48px;
     font-weight: 100;
+    text-wrap: balance;
   }
   h1 {
     font-size: 64px;
@@ -29,5 +32,14 @@ import Button from "../global/button/button.astro";
     font-size: 20px;
     margin-top: 56px;
     margin-bottom: 48px;
+  }
+
+  @media screen and (max-width: 550px) {
+    h2 {
+      font-size: 32px;
+    }
+    h1 {
+      font-size: 48px;
+    }
   }
 </style>
