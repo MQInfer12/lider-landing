@@ -56,6 +56,10 @@
     font-family: var(--font-2);
   }
 
+  body {
+    overflow-x: hidden;
+  }
+
   h1,
   h2,
   h3,
@@ -76,5 +80,16 @@
 
   img {
     font-size: 0;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--secondary-300);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--primary-500);
   }
 </style>

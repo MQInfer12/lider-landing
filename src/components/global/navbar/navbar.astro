@@ -6,7 +6,7 @@ import IconX from "../../../assets/icons/IconX.astro";
 import Logo from "./Logo.astro";
 ---
 
-<div class="top"></div>
+<div id="top-space"></div>
 <header id="navbar">
   <nav>
     <div class="left">
@@ -60,11 +60,13 @@ import Logo from "./Logo.astro";
 </header>
 <script>
   const nav = document.querySelector('#navbar');
+  const topSpace = document.querySelector('#top-space');
+
   window.addEventListener("scroll", () => {
-    if(!nav) return;
+    if(!nav || !topSpace) return;
     const bounds = nav.getBoundingClientRect();
-    const top = bounds.top;
-    if(top > 0) {
+    const onTop = bounds.top - window.scrollY > topSpace.clientHeight * -1;
+    if(onTop) {
       nav.classList.remove("onTop");
     } else {
       nav.classList.add("onTop");
@@ -73,7 +75,7 @@ import Logo from "./Logo.astro";
 </script>
 
 <style>
-  .top {
+  #top-space {
     height: 8vh;
     width: 100vw;
     display: flex;
