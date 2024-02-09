@@ -13,7 +13,7 @@ interface Props {
 const { title, text, iconColor = "primary", button } = Astro.props;
 ---
 
-<div class="card">
+<div class="card fadeIn">
   <div class:list={["icon-container", iconColor]}>
     <slot />
   </div>

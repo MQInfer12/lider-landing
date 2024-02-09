@@ -1,19 +1,21 @@
 ---
+import { type AnimationType } from "../../../types/animation";
+
 interface Props {
   type?: "primary" | "secondary";
   textAlign?: "start" | "center";
+  animation?: Exclude<AnimationType, "appear100">;
 }
 
-const { type = "primary", textAlign = "start" } = Astro.props;
+const { type = "primary", textAlign = "start", animation = "animationNone" } = Astro.props;
 ---
 
-<p class={type}><slot /></p>
+<p class:list={[type, animation]}><slot /></p>
 
 <style define:vars={{ textAlign }}>
   p {
     font-size: 14px;
     font-weight: 500;
-    opacity: .8;
     line-height: 26px;
     text-align: var(--textAlign);
   }
@@ -22,5 +24,8 @@ const { type = "primary", textAlign = "start" } = Astro.props;
   }
   .secondary {
     color: var(--accent);
+  }
+  .animationNone {
+    opacity: .8;
   }
 </style>

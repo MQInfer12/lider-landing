@@ -6,15 +6,18 @@ import Title from "../../global/texts/Title.astro";
 
 <section>
   <div class="last-dot">
-    <Dotted />
+    <Dotted type="secondary" />
   </div>
   <div class="texts">
-    <Subtitle text="Our mission" />
-    <Title responsive textAlign="center" size="xxl" text={`"Transform how the U.S. defense apparatus buys, builds, delivers, and sustains mission capabilities"`} dot />
+    <div class="text-container appear100">
+      <Subtitle type="secondary" text="Our mission" />
+      <Title type="secondary" responsive textAlign="center" size="xxl" text={`"Transform how the U.S. defense apparatus buys, builds, delivers, and sustains mission capabilities"`} dot />
+    </div>
   </div>
   <div class="last-dot">
-    <Dotted />
+    <Dotted type="secondary" />
   </div>
+  <div class="opacidad"></div>
 </section>
 
 <style>
@@ -22,23 +25,45 @@ import Title from "../../global/texts/Title.astro";
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 8vh var(--padding-inline);
-    gap: 64px;
+    margin: 6vh 0;
+    padding: 2vh 0;
+    position: relative;
+    background-image: url('/laguna.png');
+    background-attachment: fixed;
+    background-position: center;
+    background-size: 100%;
+    isolation: isolate;
   }
   .last-dot {
     width: 300px;
     display: flex;
+    z-index: 20;
   }
   .texts {
     display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 48px 0;
+  }
+  .text-container {
+    display: flex;
     flex-direction: column;
     align-items: center;
-    width: 700px;
+    width: calc(700px + calc(var(--padding-inline) + var(--padding-inline)));
     max-width: 100%;
+    padding: 0 var(--padding-inline);
+    z-index: 20;
+  }
+  .opacidad {
+    position: absolute;
+    inset: 0;
+    background-color: var(--primary-950);
+    opacity: 0.8;
+    z-index: 10;
   }
 
   @media screen and (max-width: 768px) {
-    .texts {
+    .text-container {
       gap: 24px;
     }
   }

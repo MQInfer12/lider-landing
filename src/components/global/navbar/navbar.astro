@@ -110,7 +110,6 @@ import Logo from "./Logo.astro";
   }
   .onTop {
     background-color: var(--primary-950-40);
-    backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
   }
   .left {
@@ -168,6 +167,7 @@ import Logo from "./Logo.astro";
       transform: translateX(100%);
       box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
       transition: all 0.3s;
+      z-index: 60;
     }
     input[type="checkbox"]:checked + .links {
       transform: translateX(0);
