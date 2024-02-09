@@ -12,13 +12,15 @@
   </div>
   <div id="loader-line"></div>
 </section>
-<script lang="ts">
-  const preloader = document.querySelector("#preloader");
-  const logo = document.querySelector("#logo-loader");
-  const blue = document.querySelector("#blue");
-  const blueAfter = document.querySelector("#blue-after");
-  const gray = document.querySelector("#gray");
-  const grayAfter = document.querySelector("#gray-after");
+<script>
+  import { enableScroll, disableScroll } from "../../../utils/disableScroll.ts";
+
+  const preloader = document.getElementById("preloader");
+  const logo = document.getElementById("logo-loader");
+  const blue = document.getElementById("blue");
+  const blueAfter = document.getElementById("blue-after");
+  const gray = document.getElementById("gray");
+  const grayAfter = document.getElementById("gray-after");
 
   const animate = () => {
     if(!preloader || !logo || !blue || !blueAfter || !gray || !grayAfter) return;
@@ -39,10 +41,14 @@
       preloader.style.opacity = "0";
     }, 1000);
     setTimeout(() => {
+      enableScroll();
+    }, 1500);
+    setTimeout(() => {
       preloader.style.display = "none";
     }, 2000);
   }
 
+  disableScroll();
   window.onload = () => {
     animate();
   }
