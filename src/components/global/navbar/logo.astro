@@ -16,7 +16,7 @@ const { type = "primary", size = "base" } = Astro.props;
   </div>
   <span>
     <h1>LIDER</h1>
-    <h2>Soft</h2>
+    <h2>Soft <span>S.R.L.</span></h2>
   </span>
 </div>
 
@@ -41,6 +41,12 @@ const { type = "primary", size = "base" } = Astro.props;
   }
   .base h2 {
     font-weight: 300;
+    display: flex;
+    flex-direction: column;
+  }
+  .base h2 span {
+    font-size: 12px;
+    padding-left: 2px;
   }
   .sm {
     height: 60px;

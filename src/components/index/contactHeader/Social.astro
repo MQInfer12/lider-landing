@@ -1,6 +1,7 @@
 ---
 import IconFacebook from "../../../assets/icons/IconFacebook.astro";
 import IconInstagram from "../../../assets/icons/IconInstagram.astro";
+import IconMail from "../../../assets/icons/IconMail.astro";
 import IconWhatsapp from "../../../assets/icons/IconWhatsapp.astro";
 
 interface Props {
@@ -11,14 +12,17 @@ const { size = "base" } = Astro.props;
 ---
 
 <div class={size}>
-  <a href="#">
+  <a target="_blank" href="https://www.instagram.com/lider_soft_srl?igsh=ZjR4ejNtZ3gyaGRt">
     <IconInstagram />
   </a>
-  <a href="#">
+  <a target="_blank" href="https://www.facebook.com/lider.soft.cba?mibextid=LQQJ4d">
     <IconFacebook />
   </a>
-  <a href="#">
+  <a target="_blank" href="wa.me/59167400971">
     <IconWhatsapp />
+  </a>
+  <a target="_blank" href="mailto:ventas@liderbo.com">
+    <IconMail />
   </a>
 </div>
 
