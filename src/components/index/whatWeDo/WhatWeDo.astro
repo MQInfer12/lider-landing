@@ -1,20 +1,20 @@
 ---
 import { Image } from "astro:assets";
-import WhatWeDoImg from "../../../assets/images/whatWeDo.png";
+import WhatWeDoImg from "../../../assets/images/logo.png";
 import Subtitle from "../../global/texts/Subtitle.astro";
 import Title from "../../global/texts/Title.astro";
 import Text from "../../global/texts/Text.astro";
 ---
 
-<section>
+<section id="who">
   <div class="texts">
     <Subtitle text="¿Quiénes somos?" />
     <Title 
       margin="16px 0 32px"
-      text="Empresa líder en desarrollo de sistemas de gestión y otras aplicaciones" 
+      text="Empresa LÍDER en desarrollo de sistemas de gestión y otras aplicaciones" 
       dot
     />
-    <Text animation="appear80">Nuestros sistemas proveen de información precisa y exacta para la toma de decisiones en su empresa, la sólida experiencia que tenemos en el mercado hacen que los procesos automáticos de nuestros softwares estén suficientemente testeados.</Text>
+    <Text animation="appear80">Lider Soft SRL es una empresa boliviana con más de 20 años de experiencia dedicada al desarrollo de soluciones tecnológicas de gestión empresarial. Nos especializamos en brindar software integral que cubre áreas críticas para las empresas, como la administración financiera, la contabilidad, la gestión de inventarios y la facturación electrónica.</Text>
   </div>
   <div class="image-container">
     <Image class="image fadeInLeft100" alt="what we do" src={WhatWeDoImg} />
@@ -44,7 +44,7 @@ import Text from "../../global/texts/Text.astro";
   .image {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
   }
 
   @media screen and (max-width: 768px) {

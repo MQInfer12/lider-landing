@@ -17,27 +17,27 @@ import Logo from "./Logo.astro";
           <IconX />
         </label>
         <li>
-          <a>Products</a>
+          <a class="hiperlink" href="#">Inicio</a>
+        </li>
+        <!-- <li>
+          <a href="#who">Nosotros</a>
+        </li> -->
+        <li>
+          <a class="hiperlink" href="#services">Servicios</a>
         </li>
         <li>
-          <a>Project</a>
+          <a class="hiperlink" href="#testimonies">Clientes</a>
         </li>
-        <li>
-          <a>Contracts</a>
-        </li>
-        <li>
-          <a>Case Studies</a>
-        </li>
-        <li>
+        <!-- <li>
           <a>Unicorn Academy</a>
-        </li>
+        </li> -->
       </ul>
     </div>
     <div class="right">
       <ul>
         <li>
-          <a class="bold">
-            <p class="link-text">Contact Us</p>
+          <a class="bold" href="#contact">
+            <p class="link-text hiperlink">Contáctanos</p>
             <div class="link-icon">
               <IconMessage />
             </div>
@@ -45,7 +45,7 @@ import Logo from "./Logo.astro";
         </li>
         <li>
           <a class="bold">
-            <p class="link-text">Request Demo</p>
+            <p class="link-text hiperlink">Descargas</p>
             <div class="link-icon">
               <IconShop />
             </div>
@@ -104,9 +104,30 @@ import Logo from "./Logo.astro";
   }
   a {
     white-space: nowrap;
+    text-decoration: none;
+    color: white;
+    position: relative;
+  }
+  .hiperlink {
+    font-weight: 400;
   }
   a.bold {
     font-weight: 900;
+  }
+  a:hover::after {
+    transform: scaleX(1);
+  }
+  a::after {
+    content: "";
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: white;
+    position: absolute;
+    transform-origin: center;
+    transform: scaleX(0);
+    transition: all 0.3s;
   }
   .onTop {
     background-color: var(--primary-950-40);

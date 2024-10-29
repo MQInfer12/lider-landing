@@ -2,50 +2,45 @@
 import IconCard from "./IconCard.astro";
 import IconApp from "../../../assets/icons/IconApp.astro";
 import Header from "../../global/header/Header.astro";
-import Button from "../../global/button/Button.astro";
 import IconCardContainer from "./IconCardContainer.astro";
+import Button from "../../global/button/Button.astro";
+import Text from "../../global/texts/Text.astro";
 ---
 
-<section>
+<section id="services">
   <Header small="Nuestros servicios" text="Softwares a la medida de tus necesidades">
     <div class="button-container">
-      <Button type="tertiary" text="Contáctanos" />
+      <Button type="tertiary" text="Contáctanos" href="#contact" />
     </div>
   </Header>
   <IconCardContainer>
     <IconCard
-      title="CONTABILIDAD Ver.13.0"
-      text="Incluye funcionalidades según Normas 3 y 6 emanadas del Colegio Nacional de Auditores y Contadores en concordancia con Normas de Impuestos Nacionales."
+      title="Contabilidad Versión 10.0 On Line"
+      text="Contabilidad General, Presupuestos, Flujo de Caja, Control de Activos Fijos, Tesorería, Libros de Compras y Ventas IVA (Exportables a FACILITO), Módulo bancarización, Actualización UFV’s (Sistema Integrado a sistema de Inventarios- Genera asientos de las transacciones de Inventarios)"
     >
       <IconApp />
     </IconCard>
     <IconCard
-      title="INVENTARIOS Ver.10.0 (COMERCIAL)"
-      text="Con los módulos Clientes, Proveedores, Consumo de materiales por Centros de Costo, Anticipos, Facturación manual y computarizada."
+      title="Sistema de Inventarios y Versión Farmacias"
+      text="Kardex, Control de Clientes y Proveedores, Control de productos por fechas de vencimiento, pedidos de acuerdo a promedios de venta, Transferencia de datos vía internet de sucursales remotas a la Sucursal Central."
     >
       <IconApp />
     </IconCard>
     <IconCard
-      title="INVENTARIOS Ver.6.0 (FARMACIAS)"
-      text="Farmacias con sucursales en las que todos sus puntos de venta estén conectados a un solo servidor donde sus operaciones se realizan en tiempo real"
+      title="Sistemas de Inventarios P.O.S. On Line"
+      text="Kardex, Control de Clientes y Proveedores, Control de materia prima Producción, Transferencia de datos vía internet de sucursales remotas a la Sucursal Central, Reportes varios, por Puntos de Venta, Facturación computarizada (Supermercados y otros negocios similares) Control de Sucursales Remotas."
     >
       <IconApp />
     </IconCard>
     <IconCard
-      title="PLANILLAS Ver.4.0"
-      text="Registro de empleados, planillas con columnas programables. Planilla de sueldo, RC-IVA, retenciones, aguinaldos, papeletas de pago."
+      title="Sistema de Planillas"
+      text="Planillas Mensuales, Papeletas de Pago, Planillas RC-IVA, Planillas de Aguinaldos, Planilla de Anticipos, Cálculo de Finiquitos y otros."
     >
       <IconApp />
     </IconCard>
     <IconCard
-      title="CONTROL DE CUOTAS"
-      text="Ideal para colegios, condominios e instituciones que requieren el control de pagos mensuales en función a una programación de cuotas en base a un plan de pagos."
-    >
-      <IconApp />
-    </IconCard>
-    <IconCard
-      title="FACTURACIÓN ELECTRÓNICA Y/O COMPUTARIZADA"
-      text="Simplifica el proceso de generación, envío y gestión de facturas, optimizando la contabilidad y cumpliendo con las regulaciones fiscales vigentes."
+      title="Sistema de Facturación Electrónica en LineRND102100000011"
+      text="Sistema de facturación el Línea conforme a RND-102100000011 Electrónica y Computarizada en línea con la modalidad Compra – venta."
     >
       <IconApp />
     </IconCard>
@@ -56,6 +51,14 @@ import IconCardContainer from "./IconCardContainer.astro";
       <IconApp />
     </IconCard>
   </IconCardContainer>
+</section>
+<section>
+  <Text>Cada uno de nuestros sistemas viene con el servicio de: </Text>
+  <ul>
+    <li><Text>Respaldo técnico, permanente (ONLINE)</Text></li>
+    <li><Text>Capacitación al personal involucrado en el uso de los sistemas</Text></li>
+    <li><Text>Actualizaciones y personalizaciones según requerimiento del cliente</Text></li>
+  </ul>
 </section>
 
 <style>

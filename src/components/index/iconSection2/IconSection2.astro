@@ -1,35 +1,91 @@
 ---
-import IconCard from "../iconSection/IconCard.astro";
-import IconApp from "../../../assets/icons/IconApp.astro";
 import Header from "../../global/header/Header.astro";
-import IconCardContainer from "../iconSection/IconCardContainer.astro";
+import VideoPreview from "../../../assets/images/video-preview.png";
+import Farmacias from "../../../assets/videos/farmacias.mp4";
+import { Image } from "astro:assets";
+import Text from "../../global/texts/Text.astro";
+import ModalComp from "../../global/modal/ModalComp";
+import IconPlay from "../../../assets/icons/IconPlay.astro";
+import ClientCard from "./ClientCard.astro";
+
+import Cosmos from "../../../assets/images/clients/cosmos.png";
+import CosmosVideo from "../../../assets/videos/cosmos.mp4";
+import Maxifarma from "../../../assets/images/clients/maxifarma.png";
+import MaxifarmaVideo from "../../../assets/videos/maxifarma.mp4";
+import Zurich from "../../../assets/images/clients/zurich.png";
+import ZurichVideo from "../../../assets/videos/zurich.mp4";
+import Evans from "../../../assets/images/clients/evans.png";
+import EvansVideo from "../../../assets/videos/evans.mp4";
+import Title from "../../global/texts/Title.astro";
+import Button from "../../global/button/Button.astro";
+
+import CLIENTS from '../../../data/CLIENTS.json';
 ---
 
-<section>
+<section id="testimonies">
   <Header small="Testimonios" text="Nuestros clientes" />
-  <IconCardContainer>
-    <IconCard
-      iconColor="secondary"
-      title="Package Cloud Apps & Resources"
-      text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci sit aliquid provident mollitia blanditiis rem, porro nam. Commodi, ex saepe."
-    >
-      <IconApp />
-    </IconCard>
-    <IconCard
-      iconColor="secondary"
-      title="Package Cloud Apps & Resources"
-      text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci sit aliquid provident mollitia blanditiis rem, porro nam. Commodi, ex saepe."
-    >
-      <IconApp />
-    </IconCard>
-    <IconCard
-      iconColor="secondary"
-      title="Package Cloud Apps & Resources"
-      text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci sit aliquid provident mollitia blanditiis rem, porro nam. Commodi, ex saepe."
-    >
-      <IconApp />
-    </IconCard>
-  </IconCardContainer>
+  <div class="container">
+    <Text textAlign="center">Mira este pequeño video resúmen para conocer la experiencia de nuestros clientes con nuestros sistemas. 💙</Text> 
+    <div class="video-content fadeIn">
+      <ModalComp 
+        style={{
+          width: "100%",
+          height: 400,
+          border: "4px solid var(--primary-600)"
+        }} 
+        client:only
+        width={800}
+        title="Farmacias"
+      >
+        <div class="image-container" slot="content">
+          <Image alt="clientes-preview" src={VideoPreview} />
+          <div class="overlap">
+            <div>
+              <IconPlay />
+            </div>
+          </div>
+        </div>
+        <video slot="modalContent" controls src={Farmacias} autoplay></video>
+      </ModalComp>
+    </div>
+    <Text textAlign="center">Revisa testimonios específicos de cada cliente. 💙</Text> 
+    <div class="client-grid">
+      <ClientCard title="Farmacia Cosmos" video={CosmosVideo} src={Cosmos} />
+      <ClientCard title="Farmacia Maxifarma" video={MaxifarmaVideo} src={Maxifarma} />
+      <ClientCard title="Farmacia Zurich" video={ZurichVideo} src={Zurich} />
+      <ClientCard title="Farmacia Evan's" video={EvansVideo} src={Evans} />
+    </div>
+    <div class="other-clients-container">
+      <div class="fadeIn">
+        <Title text="Contamos con más de 200 clientes contentos a lo largo del país" dot textAlign="center" responsive  />
+      </div>
+      <ModalComp 
+        client:only
+        style={{
+          height: 46,
+          marginTop: "4rem",
+          width: "max-content"
+        }}
+        width={600}
+      >
+        <div class="fadeIn" slot="content">
+          <Button text="Ver todos" />
+        </div>
+        <div class="other-clients" slot="modalContent">
+          {CLIENTS.map((c, i) => (
+            <div class="client-card">
+              <p>{i + 1}. {c.name}</p>
+              <div>
+                <Text>{c.admin}</Text>
+                <Text>{c.city}</Text>
+              </div>
+            </div>
+          ))}
+          <Text>¡Y muchos más por venir...!</Text>
+        </div>
+      </ModalComp>
+    </div>
+  </div>
 </section>
 
 <style>
@@ -38,6 +94,99 @@ import IconCardContainer from "../iconSection/IconCardContainer.astro";
     flex-direction: column;
     gap: 80px;
     align-items: center;
-    padding: 0 var(--padding-inline) 10vh;
+    padding: 0 var(--padding-inline) 2vh;
+  }
+
+  .other-clients {
+    max-height: 560px;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-block: 1rem;
+    padding-inline: 2rem;
+  }
+
+  .client-card {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .client-card > p {
+    font-weight: 600;
+  }
+
+  .client-card > div {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .container {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .video-content {
+    width: 100%;
+  }
+
+  .image-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    isolation: isolate;
+  }
+
+  .other-clients-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    justify-content: center;
+    margin-top: 4rem;
+  }
+
+  .overlap {
+    position: absolute;
+    inset: 0;
+    background-color: var(--primary-950-20);
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .overlap > div {
+    width: 80px;
+    aspect-ratio: 1;
+    color: white;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  video {
+    width: 100%;
+    max-height: 78vh;
+    background-color: black;
+  }
+
+  .client-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    column-gap: 48px;
+  }
+
+  @media screen and (max-width: 680px) {
+    .client-grid {
+      grid-template-columns: 1fr;
+    }
   }
 </style>

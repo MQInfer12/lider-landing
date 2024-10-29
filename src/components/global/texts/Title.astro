@@ -4,7 +4,7 @@ interface Props {
   type?: "primary" | "secondary";
   textAlign?: "start" | "center";
   textBalance?: boolean;
-  size?: "sm" | "base" | "xl" | "xxl";
+  size?: "sm" | "sBase" | "base" | "xl" | "xxl";
   responsive?: boolean;
   margin?: string;
   dot?: boolean;
@@ -44,6 +44,9 @@ const {
   .sm {
     font-size: .8rem;
   }
+  .sBase {
+    font-size: 1rem;
+  }
   .base {
     font-size: 2rem;
   }
@@ -61,6 +64,9 @@ const {
   }
 
   @media screen and (max-width: 768px) {
+    .xl.responsive {
+      font-size: 2rem;
+    }
     .xxl.responsive {
       font-size: 2rem;
     }

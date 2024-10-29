@@ -4,6 +4,9 @@
     <meta charset="utf-8" />
     <link rel="icon" type="image/png" href="/logo.png" />
     <meta name="viewport" content="width=device-width" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <meta name="generator" content={Astro.generator} />
     <title>LIDER Soft</title>
   </head>
@@ -16,6 +19,7 @@
   :root {
     --font-1: "Unbounded";
     --font-2: "Red Hat Display";
+    --font-3: "Montserrat";
 
     --padding-inline: 15vw;
 
@@ -34,6 +38,8 @@
     --primary-800: #2159ac;
     --primary-900: #204c88;
     --primary-950: #0a1a29;
+    --primary-950-0: rgba(10, 26, 41, 0);
+    --primary-950-20: rgba(10, 26, 41, .6);
     --primary-950-40: rgba(10, 26, 41, .9);
     --secondary-200: #d1d1d1;
     --secondary-300: #b0b0b0;
@@ -53,10 +59,13 @@
     margin: 0;
     box-sizing: border-box;
     font-weight: 100;
-    font-family: var(--font-2);
+    font-family: var(--font-3);
   }
+
   html {
     overflow-x: hidden;
+    scroll-behavior: smooth;
+    scroll-padding-top: calc(12vh + 40px);
   }
 
   h1,
@@ -65,7 +74,7 @@
   h4,
   h5,
   h6 {
-    font-family: var(--font-1);
+    font-family: var(--font-3);
   }
 
   .not-landing {

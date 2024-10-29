@@ -2,17 +2,18 @@
 interface Props {
   text: string;
   type?: "primary" | "secondary" | "tertiary";
+  href?: string;
 }
 
-const { text, type = "primary" } = Astro.props;
+const { text, type = "primary", href } = Astro.props;
 ---
 
-<button class={type}>
+<a class={type} href={href}>
   {text}
-</button>
+</a>
 
 <style>
-  button {
+  a {
     padding: 12px 56px;
     font-size: 18px;
     font-family: var(--font-1);
@@ -20,8 +21,9 @@ const { text, type = "primary" } = Astro.props;
     cursor: pointer;
     transition: all 0.3s;
     border: none;
+    text-decoration: none;
   }
-  button:hover {
+  a:hover {
     opacity: 0.8;
   }
   .primary {
